@@ -1,15 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Search v-model="val"/>
+    <div>{{val}}</div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Search from '@/components/Search.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search
+  },
+  data () {
+    return {
+      val: 'Type anything'
+    }
   }
 }
 </script>
