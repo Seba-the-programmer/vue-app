@@ -1,21 +1,33 @@
 <template>
   <div>
-    <Search v-model="val"/>
+    <Search :value="val" @input="handleInput"/>
     <div>{{val}}</div>
+    <div>
+      <Btn @clicked="this.count++"/>
+      Count: {{count}}
+    </div>
   </div>
 </template>
 
 <script>
 import Search from '@/components/Search.vue'
+import Btn from '@/components/Btn.vue'
 export default {
   name: 'App',
   components: {
-    Search
+    Search,
+    Btn
   },
   data () {
     return {
-      val: 'Type anything'
+      val: 'Type anything',
+      count: 0
     }
+  },
+  methods: {
+    handleInput(e) {
+      this.val = e.target.value
+    },
   }
 }
 </script>
