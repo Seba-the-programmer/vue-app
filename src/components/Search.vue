@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" value="value" @change="handleInput">
+    <input type="text" :value="value" @input="handleInput">
   </div>
 </template>
 
@@ -9,11 +9,15 @@
 export default {
   name: 'Search',
   props: {
-    value: String,
+    value: {
+      type: String,
+      required: true,
+      default: 'Type anything'
+    }
   },
   methods: {
     handleInput() {
-      this.$emit()
+      this.$emit('input')
     }
   }
 }
